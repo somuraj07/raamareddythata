@@ -108,9 +108,9 @@ export const AboutSection = () => {
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
             }`}
           >
-            <div className="w-full h-[480px] rounded-2xl overflow-hidden shadow-elevated bg-white flex items-center justify-center">
+            <div className="w-full h-[460px] rounded-2xl overflow-hidden shadow-elevated bg-white flex items-center justify-center">
               <img
-                src="baba.jpg"
+                src="ba.jpg"
                 alt="Sri Ramavadhuta"
                 className="w-full h-full object-contain"
               />
