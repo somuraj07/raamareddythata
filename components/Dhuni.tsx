@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 
 export default function Dhuni() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-100 px-6 py-12 flex items-center justify-center">
+    <>
+    <div className="h-10 md:hidden"></div>
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-100 px-4 md:px-6 py-8 md:py-12 flex items-center justify-center">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-6xl"
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center max-w-6xl"
       >
         {/* LEFT IMAGE */}
         <motion.div
@@ -49,5 +51,6 @@ export default function Dhuni() {
         </motion.div>
       </motion.div>
     </div>
+    </>
   );
 }

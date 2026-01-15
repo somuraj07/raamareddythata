@@ -3,10 +3,12 @@ import Image from "next/image";
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-[#f54e02]/10 text-gray-900">
-      <section className="max-w-6xl mx-auto px-6 py-16">
+      {/* Spacer for mobile navbar */}
+      <div className="h-10 md:hidden"></div>
+      <section className="max-w-6xl mx-auto px-4 md:px-6 pt-8 md:pt-16 pb-8 md:pb-16">
 
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 pt-4 md:pt-0">
           <h1 className="text-4xl md:text-5xl font-extrabold text-[#f54e02] tracking-tight">
             About Rami Reddy Thatha
           </h1>

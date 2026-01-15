@@ -16,7 +16,9 @@ export default function SpecialEvents() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-amber-100 px-6 py-12 flex flex-col items-center">
+    <>
+    <div className="h-10 md:hidden"></div>
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-amber-100 px-4 md:px-6 py-8 md:py-12 flex flex-col items-center">
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -30,7 +32,7 @@ export default function SpecialEvents() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="w-full max-w-4xl space-y-6"
+        className="w-full max-w-4xl space-y-4 md:space-y-6 px-2 md:px-0"
       >
         {events.map((event, idx) => (
           <motion.div
@@ -39,7 +41,7 @@ export default function SpecialEvents() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
-            className="bg-white/80 backdrop-blur-md rounded-xl shadow-lg p-6 hover:scale-[1.02] transition-transform duration-300"
+            className="bg-white/80 backdrop-blur-md rounded-xl shadow-lg p-4 md:p-6 hover:scale-[1.02] transition-transform duration-300"
           >
             <h2 className="text-2xl font-semibold text-orange-600 mb-2">{event.title}</h2>
             <p className="text-gray-800 text-lg leading-relaxed">{event.description}</p>
@@ -47,5 +49,6 @@ export default function SpecialEvents() {
         ))}
       </motion.div>
     </div>
+    </>
   );
 }

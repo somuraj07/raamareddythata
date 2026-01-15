@@ -5,7 +5,9 @@ import Image from "next/image";
 
 export default function ThataSaiMandir() {
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-amber-50 to-orange-100 py-10 px-6 md:px-20">
+    <>
+    <div className="h-10 md:hidden"></div>
+    <div className="min-h-screen w-full bg-gradient-to-b from-amber-50 to-orange-100 py-8 md:py-10 px-4 md:px-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -15,7 +17,7 @@ export default function ThataSaiMandir() {
         <h1 className="text-4xl font-extrabold tracking-wide text-orange-800">Thata and Sai Mandir</h1>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
         {/* LEFT SIDE IMAGE */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -68,5 +70,6 @@ export default function ThataSaiMandir() {
         </motion.div>
       </div>
     </div>
+    </>
   );
 }

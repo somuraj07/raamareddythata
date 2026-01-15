@@ -123,7 +123,9 @@ export default function HolyBookReader() {
 
 
   return (
-<div className="min-h-screen flex flex-col items-center justify-start bg-[#fdf4e3] pt-12 p-6 font-serif">
+<>
+<div className="h-10 md:hidden"></div>
+<div className="min-h-screen flex flex-col items-center justify-start bg-[#fdf4e3] pt-8 md:pt-12 px-4 md:p-6 font-serif">
 <h1 className="text-3xl md:text-4xl font-bold mb-6 mt-12 text-center">
   కళ్లూరు తాత గారి అనుభవాలు
 </h1>
@@ -161,6 +163,7 @@ export default function HolyBookReader() {
         Pages {currentPage + 1}-{Math.min(currentPage + 2, pages.length)} of {pages.length}
       </p>
     </div>
+    </>
   );
 }
 

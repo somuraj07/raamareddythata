@@ -127,7 +127,9 @@ export default function BookReader({
   if (!isBrowser) return null;
 
   return (
-    <div className="w-full min-h-[80vh] flex flex-col items-center justify-start py-20 bg-gradient-to-b from-[#fdf8f0] to-[#fff9f0] relative">
+    <>
+    <div className="h-10 md:hidden"></div>
+    <div className="w-full min-h-[80vh] flex flex-col items-center justify-start py-8 md:py-20 px-4 md:px-0 bg-gradient-to-b from-[#fdf8f0] to-[#fff9f0] relative">
 
       {/* BEAUTIFUL 3D PAGE + SHADOW EFFECTS */}
       <style jsx>{`
@@ -327,5 +329,6 @@ export default function BookReader({
 
       </div>
     </div>
+    </>
   );
 }
