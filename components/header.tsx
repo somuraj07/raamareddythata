@@ -40,7 +40,10 @@ export const HeroSection = () => {
     Rami Reddy Thata
   </span>
   <span className="block mt-4 text-3xl sm:text-4xl md:text-5xl font-normal text-white/90">
-    Samasthan
+    Samsthan
+  </span>
+  <span className="block mt-2 text-2xl bg-gradient-to-r from-[#f54202] to-white bg-clip-text text-transparent">
+  Welcome to the auspicious Aradhana Mahotsavam of Sri Rami Reddy Thatha on 16th January 2026
   </span>
 </h1>
 
