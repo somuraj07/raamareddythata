@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Goshala() {
   return (
+    <>
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-lime-100 px-4 md:px-6 py-8 md:py-12 flex items-center justify-center">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
