@@ -16,22 +16,24 @@ export default function AboutPage() {
         {/* Image Left, Content Right */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
 
-          {/* LEFT — PHOTO */}
-          <div className="flex justify-center">
-            <Image
-              src="/about.jpeg"     // <-- your png file
-              alt="Sri Avadhutha Rami Reddy Thatha"
-              width={400}
-              height={400}
-              className="rounded-xl shadow-xl border border-[#f54e02]/30"
-            />
+          {/* LEFT — PHOTO + Last 3 items below */}
+          <div className="space-y-6">
+            <div className="flex justify-center">
+              <Image
+                src="/about.jpeg"     // <-- your png file
+                alt="Sri Avadhutha Rami Reddy Thatha"
+                width={400}
+                height={400}
+                className="rounded-xl shadow-xl border border-[#f54e02]/30"
+              />
+            </div>
+
+           
           </div>
 
-          {/* RIGHT — CONTENT */}
+          {/* RIGHT — CONTENT (First 5 items) */}
           <div className="space-y-6 text-lg leading-relaxed">
-
             <ul className="list-disc pl-5 space-y-4 marker:text-[#f54e02]">
-
               <li>
                 Sri Avadhutha Rami Reddy Thatha was born to Hanumanth Reddy and
                 Eshwaramma in 1949 on Shravan Bahula Ashtami (Sri Krishna Janmashtami),
@@ -60,28 +62,28 @@ export default function AboutPage() {
                 to guide devotees toward renunciation, purity, and salvation.
                 Sri Ramavadhuta is believed to be an incarnation of Lord Dattatreya.
               </li>
-
-              <li>
-                Blessed is the soil of Kallur, which received his holy presence.
-                Tatha cared for devotees with immense love, destroyed their karmic burdens,
-                uplifted lives, and fulfilled righteous desires.
-              </li>
-
-              <li>
-                On 15 January 1993, Tatha took Mahasamidhi. His physical body left the world,
-                but his eternal divine presence continues to guide and bless devotees.
-              </li>
-
-              <li>
-                After Mahasamidhi, a Sansthan was established to continue daily poojas,
-                spiritual activities, and social service in his name.
-              </li>
-
             </ul>
-
           </div>
         </div>
+        <div className="space-y-6 px-13 pt-5 text-lg leading-relaxed">
+              <ul className="list-disc pl-5 space-y-4 marker:text-[#f54e02]">
+                <li>
+                  Blessed is the soil of Kallur, which received his holy presence.
+                  Tatha cared for devotees with immense love, destroyed their karmic burdens,
+                  uplifted lives, and fulfilled righteous desires.
+                </li>
 
+                <li>
+                  On 15 January 1993, Tatha took Mahasamidhi. His physical body left the world,
+                  but his eternal divine presence continues to guide and bless devotees.
+                </li>
+
+                <li>
+                  After Mahasamidhi, a Sansthan was established to continue daily poojas,
+                  spiritual activities, and social service in his name.
+                </li>
+              </ul>
+            </div>
       </section>
     </main>
   );

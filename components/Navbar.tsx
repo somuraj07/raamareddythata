@@ -46,7 +46,8 @@ export default function Navigation() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 
+    <>
+    <nav className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 isolate
       ${isScrolled ? "bg-white/90 backdrop-blur-md shadow" : "bg-transparent"}`}>
 
       <div className="max-w-7xl mx-auto px-4">
@@ -133,68 +134,102 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-black"
+            className="lg:hidden p-2 text-black z-[10000] relative"
           >
             {isOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
-
-        {/* Mobile Menu */}
-        <div
-          className={`lg:hidden overflow-hidden transition-all duration-500 
-          ${isOpen ? "max-h-[80vh] pb-6 overflow-y-auto" : "max-h-0"}`}
-        >
-          <div className="flex flex-col gap-2 pt-4 border-t">
-
-            <Link href="/" className="py-2 text-gray-700 hover:text-orange-600">
-              Home
-            </Link>
-
-            {/* Mobile About */}
-            <div className="py-2">
-              <button
-                onClick={() => setAboutOpen(!aboutOpen)}
-                className="flex items-center justify-between w-full text-gray-700"
-              >
-                About
-                <ChevronDown className={`w-4 h-4 ${aboutOpen ? "rotate-180" : ""}`} />
-              </button>
-
-              {aboutOpen && (
-                <div className="pl-4 mt-2 space-y-2 border-l">
-                  {aboutDropdown.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="block py-1 text-sm text-gray-500 hover:text-orange-600"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Other Mobile Links */}
-            {navLinks.slice(1).map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="py-2 text-gray-700 hover:text-orange-600"
-              >
-                {link.label}
-              </Link>
-            ))}
-
-            <a
-              href="#donate"
-              className="mt-2 w-fit px-4 py-2 bg-orange-600 text-white rounded-lg text-sm shadow"
-            >
-              Donate Now
-            </a>
-          </div>
-        </div>
       </div>
     </nav>
+
+    {/* Mobile Sidebar Overlay - Outside nav */}
+    {isOpen && (
+      <div
+        className="lg:hidden fixed inset-0 bg-black/50 z-[9998]"
+        onClick={() => setIsOpen(false)}
+        style={{ pointerEvents: 'auto' }}
+      />
+    )}
+
+    {/* Mobile Sidebar - Outside nav */}
+    <div
+      className={`lg:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-[9999] transform transition-transform duration-300 ease-in-out overflow-y-auto
+      ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+      style={{ pointerEvents: isOpen ? 'auto' : 'none' }}
+    >
+      <div className="flex flex-col h-full">
+        {/* Sidebar Header */}
+        <div className="flex items-center justify-between p-4 border-b">
+          <h2 className="font-semibold text-lg text-gray-800">Menu</h2>
+          <button
+            onClick={() => setIsOpen(false)}
+            className="p-2 text-gray-700 hover:text-orange-600"
+          >
+            <X size={24} />
+          </button>
+        </div>
+
+        {/* Sidebar Content */}
+        <div className="flex flex-col gap-2 p-4 flex-1">
+          <Link 
+            href="/" 
+            className="py-3 px-4 text-gray-700 hover:text-orange-600 hover:bg-gray-50 rounded-lg transition"
+            onClick={() => setIsOpen(false)}
+          >
+            Home
+          </Link>
+
+          {/* Mobile About */}
+          <div className="py-2">
+            <button
+              onClick={() => setAboutOpen(!aboutOpen)}
+              className="flex items-center justify-between w-full py-3 px-4 text-gray-700 hover:text-orange-600 hover:bg-gray-50 rounded-lg transition"
+            >
+              About
+              <ChevronDown className={`w-4 h-4 transition-transform ${aboutOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            {aboutOpen && (
+              <div className="pl-4 mt-2 space-y-1 border-l-2 border-gray-200">
+                {aboutDropdown.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block py-2 px-4 text-sm text-gray-600 hover:text-orange-600 hover:bg-gray-50 rounded-lg transition"
+                    onClick={() => {
+                      setIsOpen(false);
+                      setAboutOpen(false);
+                    }}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Other Mobile Links */}
+          {navLinks.slice(1).map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="py-3 px-4 text-gray-700 hover:text-orange-600 hover:bg-gray-50 rounded-lg transition"
+              onClick={() => setIsOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          <a
+            href="#donate"
+            className="mt-4 px-4 py-3 bg-orange-600 text-white rounded-lg text-sm shadow hover:bg-orange-700 transition text-center"
+            onClick={() => setIsOpen(false)}
+          >
+            Donate Now
+          </a>
+        </div>
+      </div>
+    </div>
+    </>
   );
 }
